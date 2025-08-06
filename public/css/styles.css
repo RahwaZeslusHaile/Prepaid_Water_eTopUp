@@ -42,7 +42,7 @@ h1 {
   color: #2c3e50;
 }
 
-.subtitle {
+p {
   color: var(--light-text);
   text-align: center;
   margin-bottom: 2rem;
