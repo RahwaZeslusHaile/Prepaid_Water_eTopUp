@@ -71,7 +71,56 @@ This app will allow users to:
 
 ---
 
-## 6. Stakeholders
+## 6. Requirements
+
+## Functional Requirements
+- User registration and login
+- Secure storage of user meter numbers
+- Real-time meter top-up feature
+- Balance check integration
+- Support for multiple meter numbers
+- Ability to top up other meters
+- View transaction history
+- Confirmation messages via email/SMS
+- Payment gateway integration (e.g. PayFast, Ozow, SnapScan)
+- Admin dashboard for vendors
+- Meter validation process
+- User deletion and meter unlinking
+
+## Non-Functional Requirements
+- Fast response time for top-up transactions
+- Mobile responsiveness and accessibility
+- Secure data handling (encryption, HTTPS)
+- Scalable infrastructure (cloud-based preferred)
+- High availability and minimal downtime
+- Clear and intuitive user interface
+- Compliance with local data protection laws (e.g., POPIA)
+
+👥 ## User Requirements
+- Simple and fast sign-up process
+- Secure and reliable login
+- Easy-to-use interface for meter top-up
+- Access to transaction history and receipts
+- Mobile-first experience
+- Option to top up others' meters
+
+## Vendor Requirements
+- Access to user database (restricted and secure)
+- Ability to verify and validate meters
+- View analytics on usage and top-ups
+- Admin controls for customer support
+- Ability to communicate announcements (e.g., maintenance)
+
+## Developer Requirements
+- Integration with South African payment APIs (PayFast, Yoco, etc.)
+- API for meter top-up and balance check
+- Modular backend architecture (Node.js, Django, etc.)
+- Secure database (Firebase, Firestore, MySQL)
+- GitHub repository with clear folder structure
+- API documentation and error handling
+- Testing and CI setup
+
+## 7. Stakeholders
 
 - End Users (homeowners, tenants, etc.)  
 - Admin/Vendor (manage and approve meters)  
@@ -80,7 +129,7 @@ This app will allow users to:
 
 ---
 
-## 7. Technology Stack (Proposed)
+## 8. Technology Stack (Proposed)
 
 - **Frontend**: HTML, CSS, JavaScript (React/Next.js)  
 - **Backend**: Node.js + Express.js  
@@ -91,7 +140,7 @@ This app will allow users to:
 
 ---
 
-## 8. Milestones (4-Week Plan)
+## 9. Milestones (4-Week Plan)
 
 **Week 1**  
 - Setup repo, structure, and design UI  
