@@ -28,6 +28,19 @@ body {
   justify-content: center;
 }
 
+.container {
+    width: 95%; /* More generous width on small screens */
+    margin: 1rem auto; /* Smaller margin on mobile */
+    padding: 1.5rem; /* Reduced padding on mobile */
+    background: white;
+    border-radius: 8px; /* Slightly smaller radius on mobile */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.05), /* Lighter shadow on mobile */
+        0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
 .logo {
   width: 100px;
   height: auto;
@@ -160,4 +173,34 @@ footer {
   button {
     padding: 0.875rem;
   }
+}
+
+@media (min-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 
+            0 3px 5px rgba(0, 0, 0, 0.08),
+            0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Desktop (Large Screens) */
+@media (min-width: 900px) {
+    .container {
+        max-width: 420px; /* Only set max-width at desktop */
+        border-radius: 12px;
+        box-shadow: 
+            0 4px 6px rgba(0, 0, 0, 0.1),
+            0 1px 3px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease; /* Only add transition on desktop */
+    }
+    
+    .container:hover {
+        transform: translateY(-2px);
+        box-shadow: 
+            0 6px 12px rgba(0, 0, 0, 0.1),
+            0 3px 6px rgba(0, 0, 0, 0.15);
+    }
 }
