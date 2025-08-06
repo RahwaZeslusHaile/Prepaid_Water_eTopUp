@@ -57,7 +57,21 @@ This app will allow users to:
 
 ---
 
-## 5. Stakeholders
+## 5. User Stories
+
+* As a **user**, I want to **sign up and log in**, so that I can securely access my account.
+* As a **user**, I want to **top up my water meter**, so that I can get water credit without entering a token.
+* As a **user**, I want to **register a new meter**, so that I can manage multiple meters from one account.
+* As a **user**, I want to **see my balance**, so that I know how much water credit I have left.
+* As a **user**, I want to **see a purchase history/report**, so that I can track my water usage and spending.
+* As a **user**, I want to **top up someone else’s meter**, so that I can help friends or family.
+* As a **user**, I want to **delete a meter**, so that I can remove old or invalid meters from my account.
+* As a **vendor**, I want to **validate new meter numbers**, so that only active and supported meters can be used.
+* As an **admin**, I want to **monitor all top-ups and transactions**, so that I can ensure the system is running smoothly.
+
+---
+
+## 6. Stakeholders
 
 - End Users (homeowners, tenants, etc.)  
 - Admin/Vendor (manage and approve meters)  
@@ -66,7 +80,7 @@ This app will allow users to:
 
 ---
 
-## 6. Technology Stack (Proposed)
+## 7. Technology Stack (Proposed)
 
 - **Frontend**: HTML, CSS, JavaScript (React/Next.js)  
 - **Backend**: Node.js + Express.js  
@@ -77,7 +91,7 @@ This app will allow users to:
 
 ---
 
-## 7. Milestones (4-Week Plan)
+## 8. Milestones (4-Week Plan)
 
 **Week 1**  
 - Setup repo, structure, and design UI  
