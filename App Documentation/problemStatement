@@ -1,0 +1,9 @@
+Problem Statement
+Prepaid electricity and water users often experience difficulties when topping up their meters due to reliance on physical keypads. 
+The current process—buying tokens from retailers or online, then manually inputting them into a keypad—is inconvenient and error-prone. 
+Users risk losing paper tokens, face challenges when sending tokens remotely, encounter unavailability at retail points, and are unable to top up when stores are closed. 
+Faulty or inaccessible keypads further hinder successful recharges.
+
+To solve these issues, this project proposes an application that enables direct top-ups to prepaid meters, eliminating the need for keypad entry. 
+The app will allow users to purchase tokens anytime, anywhere; view balances; access purchase history and usage reports; and manage multiple meters from a 
+single platform—greatly enhancing convenience, reliability, and accessibility.
