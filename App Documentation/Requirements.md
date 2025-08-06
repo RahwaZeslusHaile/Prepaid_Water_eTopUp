@@ -96,7 +96,7 @@ This app will allow users to:
 - Clear and intuitive user interface
 - Compliance with local data protection laws (e.g., POPIA)
 
-👥 ## User Requirements
+## User Requirements
 - Simple and fast sign-up process
 - Secure and reliable login
 - Easy-to-use interface for meter top-up
