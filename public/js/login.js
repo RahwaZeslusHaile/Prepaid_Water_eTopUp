@@ -5,7 +5,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyCRXQbzPIgxajqry9JhaXsQt0GKqyH9-vw",
   authDomain: "prepaid-water-etopup.firebaseapp.com",
   projectId: "prepaid-water-etopup",
-  storageBucket: "prepaid-water-etopup.firebasestorage.app",
+  storageBucket: "prepaid-water-etopup.appspot.com",
   messagingSenderId: "468229120952",
   appId: "1:468229120952:web:18a0a2301b80e15c55e54d",
   measurementId: "G-T219CENGQ1"
@@ -22,6 +22,7 @@ loginForm.addEventListener('submit', async (e) => {
 
   const email = loginForm.email.value;
   const password = loginForm.password.value;
+  console.log("Trying login with:", email, password); 
 
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
