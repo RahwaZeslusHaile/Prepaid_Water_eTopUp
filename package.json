@@ -1,9 +1,28 @@
 {
-  "type": "module",
-  "dependencies": {
-    "dotenv": "^17.2.1"
+  "name": "prepaid_water_etopup",
+  "version": "1.0.0",
+  "description": "Prepaid Water eTopUp App",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
   },
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server/server.js"
-  }
-}
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RahwaZeslusHaile/Prepaid_Water_eTopUp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RahwaZeslusHaile/Prepaid_Water_eTopUp/issues"
+  },
+  "type": "module"
+  "homepage": "https://github.com/RahwaZeslusHaile/Prepaid_Water_eTopUp#readme",
+  "dependencies": {
+    "firebase": "^12.0.0"
+    "dotenv": "^17.2.1"
+ }
+
