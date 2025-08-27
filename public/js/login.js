@@ -1,6 +1,8 @@
+// login.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCRXQbzPIgxajqry9JhaXsQt0GKqyH9-vw",
   authDomain: "prepaid-water-etopup.firebaseapp.com",
@@ -11,27 +13,43 @@ const firebaseConfig = {
   measurementId: "G-T219CENGQ1"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-const loginForm = document.querySelector('.login-form');
-const errorMessage = document.getElementById('error-message');
+document.addEventListener("DOMContentLoaded", () => {
+  const loginForm = document.querySelector(".login-form");
+  const errorMessage = document.getElementById("error-message");
 
-loginForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const email = loginForm.email.value;
-  const password = loginForm.password.value;
-  console.log("Trying login with:", email, password); 
+    const email = loginForm.elements["email"].value.trim();
+    const password = loginForm.elements["password"].value;
 
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+    if (!email || !email.includes("@")) {
+      errorMessage.textContent = "Please sign in with a valid email address.";
+      return;
+    }
 
-    alert(`Welcome back, ${user.email}!`);
+    try {
+      const { user } = await signInWithEmailAndPassword(auth, email, password);
 
-    window.location.href = './dashboard.html';
-  } catch (error) {
-    errorMessage.textContent = error.message;
-  }
+      // Store email in local storage (password is not returned by Firebase)
+      localStorage.setItem("email", user.email || "");
+
+      alert(`Welcome back, ${user.displayName || user.email}!`);
+      window.location.href = "./dashboard.html";
+    } catch (err) {
+      console.error(err);
+      const map = {
+        "auth/invalid-email": "The email address is badly formatted.",
+        "auth/user-not-found": "No account found with this email.",
+        "auth/wrong-password": "Incorrect password.",
+        "auth/too-many-requests": "Too many attempts. Please try again later.",
+        "auth/network-request-failed": "Network error. Check your connection."
+      };
+      errorMessage.textContent = map[err.code] || err.message;
+    }
+  });
 });

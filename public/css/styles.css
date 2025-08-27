@@ -199,3 +199,108 @@ footer {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.15);
   }
 }
+
+/* ================================
+   Dashboard Styles
+   ================================ */
+.dashboard-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.dashboard-header h1 {
+  font-size: 1.25rem;
+  color: var(--primary-color-1);
+}
+
+.dashboard-header p {
+  font-size: 0.9rem;
+  color: var(--light-text);
+}
+
+/* Account balance + meters */
+.account-balance,
+.recent-transactions {
+  background: #fff;
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+}
+
+.account-balance h2,
+.recent-transactions h2 {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--primary-color-1);
+}
+
+#meter-list,
+#transaction-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#meter-list li,
+#transaction-list li {
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 0.375rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  background-color: #fafafa;
+}
+
+#meter-list li:hover,
+#transaction-list li:hover {
+  background-color: #f0f9ff;
+  border-color: var(--primary-color);
+}
+
+/* Buttons for actions */
+#add-meter-btn,
+#topup-btn,
+#logout-btn {
+  width: 100%;
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#add-meter-btn:hover,
+#topup-btn:hover,
+#logout-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Differentiate logout button */
+#logout-btn {
+  background-color: var(--error-color);
+}
+
+#logout-btn:hover {
+  background-color: #c0392b;
+}
+
+/* ================================
+   Responsive Dashboard
+   ================================ */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .account-balance,
+  .recent-transactions {
+    margin-bottom: 0;
+  }
+}

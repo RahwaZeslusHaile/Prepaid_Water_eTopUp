@@ -3,14 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard</title>
+  <title>Dashboard - WE Top Up</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <style>
+    /* Temporary inline styles - you can move to styles.css */
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      margin: 20px 0;
+    }
+
+    .btn-group button {
+      flex: 1;
+    }
+  </style>
 </head>
 <body>
-  <h1 id="welcome-msg">Welcome to Smart Meter Dashboard</h1>
-  <p>Your real-time usage will appear here.</p>
+  <div class="container">
+    <h1 id="welcome">Welcome back!</h1>
+    <p>Manage your water meters</p>
 
-  <button id="logout-btn">Logout</button>
- <script src="./js/dashboard.js" type="module" ></script>
+    <!-- Account Balances -->
+    <div class="account-balance">
+      <h2>Account Balance</h2>
+      <ul id="meter-list">
+        <!-- Will be empty until user adds meters -->
+      </ul>
+    </div>
 
+    <!-- Button Group -->
+    <div class="btn-group">
+      <button id="add-meter-btn">+ Add Meter</button>
+      <button id="topup-btn">Top-Up Now</button>
+    </div>
+
+    <!-- Recent Transactions -->
+    <div class="recent-transactions">
+      <h2>Recent Transactions</h2>
+      <ul id="transaction-list">
+        <!-- Will be empty until user makes transactions -->
+      </ul>
+    </div>
+
+    <button id="logout-btn">Logout</button>
+  </div>
+
+  <script type="module" src="./js/dashboard.js"></script>
 </body>
 </html>
