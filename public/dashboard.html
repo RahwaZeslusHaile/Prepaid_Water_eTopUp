@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard - WE Top Up</title>
+  <title>Dashboard - Meter Management</title>
   <link rel="stylesheet" href="./css/styles.css">
-  <style>
-    /* Temporary inline styles - you can move to styles.css */
-    .btn-group {
-      display: flex;
-      gap: 15px;
-      margin: 20px 0;
-    }
-
-    .btn-group button {
-      flex: 1;
-    }
-  </style>
 </head>
+
 <body>
   <div class="container">
-    <h1 id="welcome">Welcome back!</h1>
-    <p>Manage your water meters</p>
+    <!-- Header -->
+    <div class="dashboard-header">
+      <h1>Welcome to Meter Management</h1>
+      <p>Manage your meters and balances</p>
+    </div>
 
-    <!-- Account Balances -->
+    <!-- Meters List -->
     <div class="account-balance">
-      <h2>Account Balance</h2>
-      <ul id="meter-list">
-        <!-- Will be empty until user adds meters -->
-      </ul>
+      <h2>Your Meters</h2>
+      <div id="meter-list" class="meter-list"></div>
     </div>
 
-    <!-- Button Group -->
+    <!-- Buttons -->
     <div class="btn-group">
-      <button id="add-meter-btn">+ Add Meter</button>
-      <button id="topup-btn">Top-Up Now</button>
+      <button id="add-meter-btn">Add Meter</button>
+      <button id="topup-btn">Top-Up</button>
     </div>
 
-    <!-- Recent Transactions -->
-    <div class="recent-transactions">
-      <h2>Recent Transactions</h2>
-      <ul id="transaction-list">
-        <!-- Will be empty until user makes transactions -->
-      </ul>
+    <!-- Logout button (separate so we can push it down) -->
+    <button id="logout-btn" class="logout-btn">Logout</button>
+
+    <!-- Add Meter Form Section -->
+    <div id="addMeterFormSection" style="display:none; margin-top:20px;">
+      <h3>Add New Meter</h3>
+      <form id="addMeterForm">
+        <label for="meterName">Meter Name:</label>
+        <input type="text" id="meterName" required>
+
+        <label for="meterNumber">Meter Number:</label>
+        <input type="text" id="meterNumber" required>
+
+        <button type="submit">Add Meter</button>
+        <button type="button" id="cancelAddMeterBtn">Cancel</button>
+      </form>
     </div>
 
-    <button id="logout-btn">Logout</button>
+    <!-- Top-Up Form Section (Hidden initially) -->
+    <div id="topUpFormSection" style="display:none; margin-top:20px;">
+      <h3>Top-Up Meter</h3>
+      <label for="meterSelect">Select Meter:</label>
+      <select id="meterSelect"></select>
+
+      <label for="topUpAmount">Amount (R):</label>
+      <input type="number" id="topUpAmount" placeholder="Enter amount">
+
+      <button id="confirmTopUpBtn">Confirm Top-Up</button>
+      <button id="cancelTopUpBtn" type="button">Cancel</button>
+    </div>
   </div>
 
   <script type="module" src="./js/dashboard.js"></script>
 </body>
+
 </html>

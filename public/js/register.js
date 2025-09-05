@@ -1,8 +1,8 @@
+// register.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-analytics.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 
-// Firebase configuration
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyCRXQbzPIgxajqry9JhaXsQt0GKqyH9-vw",
   authDomain: "prepaid-water-etopup.firebaseapp.com",
@@ -15,20 +15,20 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-getAnalytics(app);
 const auth = getAuth(app);
 
-const signupForm   = document.querySelector('.signup-form');
-const errorMessage = document.getElementById('error-message');
+// Form & error message
+const signupForm = document.querySelector(".signup-form");
+const errorMessage = document.getElementById("error-message");
 
-signupForm.addEventListener('submit', async (e) => {
+signupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const fullname = signupForm.fullname.value.trim();
-  const email = signupForm.email.value.trim();
-  const phone = signupForm.phone.value.trim();
-  const password = signupForm.password.value;
-  const confirmPassword = signupForm.confirm_password.value;
+  const fullname = signupForm.elements["name"].value.trim(); // fixed
+  const email = signupForm.elements["email"].value.trim();
+  const phone = signupForm.elements["phone"].value.trim();
+  const password = signupForm.elements["password"].value;
+  const confirmPassword = signupForm.elements["confirm_password"].value;
 
   if (password !== confirmPassword) {
     errorMessage.textContent = "Passwords do not match";
@@ -36,20 +36,26 @@ signupForm.addEventListener('submit', async (e) => {
   }
 
   try {
-    // Create user with Firebase Auth
-    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-    const user = userCredential.user;
+    // Firebase signup
+    const { user } = await createUserWithEmailAndPassword(auth, email, password);
 
-    // Save fullname & phone in localStorage
+    // Store user info locally (for dev purposes)
     localStorage.setItem("fullname", fullname);
     localStorage.setItem("phone", phone);
     localStorage.setItem("email", email);
 
-    // Redirect with welcome message
     alert(`Account created successfully! Welcome, ${fullname}`);
     signupForm.reset();
-    window.location.href = "./dashboard.html";
+
+    // Redirect to login
+    window.location.href = "./index.html";
   } catch (error) {
-    errorMessage.textContent = error.message;
+    console.error("Signup error:", error);
+    const map = {
+      "auth/email-already-in-use": "This email is already registered.",
+      "auth/invalid-email": "Please enter a valid email.",
+      "auth/weak-password": "Password should be at least 6 characters."
+    };
+    errorMessage.textContent = map[error.code] || error.message;
   }
 });

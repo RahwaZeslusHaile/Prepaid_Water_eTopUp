@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   loginForm.addEventListener("submit", async (e) => {
     e.preventDefault();
 
+    // ✅ match fixed HTML (name="email" and name="password")
     const email = loginForm.elements["email"].value.trim();
     const password = loginForm.elements["password"].value;
 
@@ -33,15 +34,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     try {
+      // ✅ Firebase login
       const { user } = await signInWithEmailAndPassword(auth, email, password);
 
-      // Store email in local storage (password is not returned by Firebase)
+      // Store email in localStorage for dashboard access
       localStorage.setItem("email", user.email || "");
 
+      // Optional: personalize welcome
       alert(`Welcome back, ${user.displayName || user.email}!`);
+
+      // Redirect to dashboard
       window.location.href = "./dashboard.html";
     } catch (err) {
-      console.error(err);
+      console.error("Login error:", err);
+
+      // Friendlier error messages
       const map = {
         "auth/invalid-email": "The email address is badly formatted.",
         "auth/user-not-found": "No account found with this email.",
@@ -49,7 +56,8 @@ document.addEventListener("DOMContentLoaded", () => {
         "auth/too-many-requests": "Too many attempts. Please try again later.",
         "auth/network-request-failed": "Network error. Check your connection."
       };
-      errorMessage.textContent = map[err.code] || err.message;
+
+      errorMessage.textContent = map[err.code] || "Login failed. Please try again.";
     }
   });
 });
